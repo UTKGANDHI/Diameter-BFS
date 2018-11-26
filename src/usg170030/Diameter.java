@@ -18,24 +18,27 @@ public class Diameter {
      * @return diameter of the graph
      */
     public static int diameter(Graph g) {
-
-        Vertex maxVertex = null;
-        int max  = 0;
-
         BFSOO b = breadthFirstSearch(g, g.getVertex(1));
+        int max = 0;
+        Vertex src = null;
+        int distance = 0;
 
-        for(Vertex u: g) {
-            maxVertex = u;
-            max = Math.max(max, b.getDistance(u));
+        for (Vertex u : g) {
+            distance  = b.getDistance(u);
+            if (max < distance) {
+                src = u;
+                max = distance;
+            }
         }
 
-        breadthFirstSearch(g, maxVertex);
+        b = breadthFirstSearch(g, src);
+        int diameter = 0;
 
-        int dia  = 0;
-        for(Graph.Vertex u: g) {
-            dia = Math.max(max, b.getDistance(u));
+        for (Vertex u : g) {
+            diameter = Math.max(diameter, b.getDistance(u));
         }
-        return dia;
+
+        return diameter;
     }
 
     public static void main(String[] args) throws Exception {
@@ -45,7 +48,7 @@ public class Diameter {
         // input is read, otherwise use input from string.
         in = args.length > 0 ? new Scanner(new File(args[0])) : new Scanner(string);
         // Read graph from input
-        Graph g = Graph.readDirectedGraph(in);
+        Graph g = Graph.readGraph(in);
         int s = in.nextInt();
         g.printGraph(false);
 
