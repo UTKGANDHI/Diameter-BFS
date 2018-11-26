@@ -1,14 +1,16 @@
+/**
+ * @author;
+ *          1. Utkarsh Gandhi (usg170030)
+ *          2. Rutuja Kaushike (rnk170000)
+ */
 package usg170030;
 
 import rbk.BFSOO;
 import rbk.Graph;
-
 import java.io.File;
 import java.util.Scanner;
 import rbk.Graph.Vertex;
-
 import static rbk.BFSOO.breadthFirstSearch;
-
 
 public class Diameter {
 
@@ -42,7 +44,7 @@ public class Diameter {
     }
 
     public static void main(String[] args) throws Exception {
-        String string = "8 7   1 2 2   1 3 3   2 4 5   2 5 4   4 6 1   5 7 1   7 8 2  0";
+        String string = "8 7   1 2 1   1 3 1   2 4 1   2 5 1   4 6 1   5 7 1   7 8 1  0";
         Scanner in;
         // If there is a command line argument, use it as file from which
         // input is read, otherwise use input from string.
